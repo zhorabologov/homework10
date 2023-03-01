@@ -4,7 +4,7 @@ public class Main {
 
         int year = 2020;
         boolean yearLeap = isYearLeap(year);
-        System.out.println(year + " год — високосный год». Если год невисокосный, то:" + yearLeap +  "год — невисокосный год");
+        System.out.println(yearLeap + " год — високосный год». Если год невисокосный, то:" + year +  "год — невисокосный год");
     }
 
 
@@ -12,7 +12,7 @@ public class Main {
             if ((year % 4 == 0 && year % 100 == 0) || year % 400 == 0) ;
             return true;
         } else {
-        return false
+        return false;
     }
 
     }
