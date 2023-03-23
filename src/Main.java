@@ -1,56 +1,61 @@
+import java.time.LocalDate;
+
 public class Main {
     public static void main(String[] args) {
-        //task1
 
-        int year = 2021;
-        boolean yearLeap = isYearLeap(year);
-        System.out.println(yearLeap + " год — високосный год». Если год невисокосный, то:" + year + "год — невисокосный год");
+        //задание 1
+        int year = 2020;
+        boolean yearLeap = isYearLeap (year);
+        System.out.println (yearLeap + " год — високосный год». Если год невисокосный, то: " + year + "год — невисокосный год");
+
+        //задание 2
+        determineTypeOC (0, 2015);
+
+        //задание 3
+        int distance = 95;
+        int time = intervalTime (distance);
+        System.out.println ("Потребуется дней: " + time + " для расстояния " + distance);
     }
 
-
     public static boolean isYearLeap(int year) {
-        if ((year % 4 == 0 && year % 100 == 0) || year % 400 == 0) ;
-        return true;
-    }else
+        return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
+    }
 
-    {
-        return false;
+    public static void determineTypeOC(int type, int clientDeviceYear) {
+        int currentYear = LocalDate.now ().getYear ();
 
-        // task2
+        if (type == 0) {
+            if (clientDeviceYear < currentYear) {
+                System.out.println ("Установите облегченную версию приложения для iOS по ссылке");
+            } else {
+                System.out.println ("Установите стандартную версию на iOS");
+            }
 
-        public static void searchYearAndIOS () {
-        System.out.println();
-        int clientIOS = 0;
-        int clientDeviceYear = 2012;
-        if (clientIOS == 0 && clientDeviceYear > 2015) printIOS();
-        if (clientIOS == 1 && clientDeviceYear < 2015) printIOSTwo();
-        if (clientIOS == 0 && clientDeviceYear > 2015) printAndroid();
-        if (clientIOS == 0 && clientDeviceYear > 2015) printAndroidTwo();
-
-        // task3
-
-        public static String term ( int deliveryDistance){
-            int deliveryTerm = 1;
-            if deliveryDistance > 100 {
-                deliveryTerm--;
-
-                if (deliveryDistance >= 20) {
-                    deliveryTerm++;
-                }
-                if (deliveryDistance >= 60 && deliveryDistance <= 100) {
-                    deliveryTerm++;
-                }
-                return ("Дней доставки: " + deliveryTerm);
-
+        } else if (type == 1) {
+            if (clientDeviceYear < currentYear) {
+                System.out.println ("Установите облегченную версию приложения для Android по ссылке");
+            } else {
+                System.out.println ("Установите стандартную версию на Android");
             }
         }
     }
 
-
+    public static int intervalTime(int distance) {
+        if (distance > 100) {
+            return -1;
+        }
+        int time = 1;
+        if (distance >= 20) {
+            ++time;
+        }
+        if (distance >= 60) {
+            ++time;
+        }
+        if (distance <= 100) {
+            ++time;
+        }
+        return time;
     }
-
-
 }
 
 
-            }
